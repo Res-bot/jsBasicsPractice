@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter the value whose table you want: <input type="text" id="val">
+    <button onclick="show()">show</button>
+    <ul id="multiples"></ul>
+
+    <script>
+        let v = document.getElementById("val");
+        let lis = document.getElementById("multiples")
+        function show(){
+            let num = v.value;
+            lis.innerHTML = "";
+            for (let i = 1; i<=10; i++) {
+                let val = num*i
+                lis.innerHTML += `<li>${num} x ${i} = ${val}</li>`
+            }
+            
+        }
+        
+    </script>
+</body>
+</html>
