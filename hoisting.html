@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="ab"></p>
+    <button onclick="hoistedfunc()">what do i want</button>
+    <input type="text" id="inp">
+    <p id="bc"></p>
+    <script>
+        let ba = document.getElementById("ab")
+        ba.innerHTML = `Here we will learn hoisting`;
+
+        let ipt = document.getElementById("inp")
+
+        let cb = document.getElementById("bc")
+
+
+        function hoistedfunc(){
+            let iptval = ipt.value
+            cb.innerHTML = `i want a ${iptval}` 
+        }
+
+        console.log("hoisting works in case of function declaration");
+
+        console.log(validHoisting());
+
+        function validHoisting(){
+            return "i am function declaration which is best suited for hoisting"
+        }
+
+        console.log("trying hoisting using function expression(var) with var keyword");
+        try {
+            notHoistedVar()
+        } catch (err) {
+            console.error(err);            
+        }
+        var notHoistedVar = function(){
+            return "this is a function expression(var) and this does not support hoisting."
+        } 
+
+        console.log("trying hoisting using function expression(const) with const keyword");
+        try {
+            notHoistedConst()
+        } catch (err) {
+            console.error(err);            
+        }
+        const notHoistedConst = function(){
+            return "this is a function expression(const) and this does not support hoisting."
+        } 
+
+
+        
+        
+        
+        
+    </script>
+</body>
+</html>
