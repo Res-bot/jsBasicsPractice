@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Variables and Function declaration are moved to the top of their scope during compilation</h1>
+    <script>
+        function mixNmatch(first, second, ...others) {
+            console.log("First: ", first);
+            console.log(`Second: ${second}`);
+            console.log(`Others: ${others}`);
+        }
+        mixNmatch("Apple", "Banana", "Cherry", "Damon", "Elena", "Fish", "Girl")
+        mixNmatch("Happy")
+        mixNmatch("Iceberg","Josette")
+        mixNmatch("Katherine")
+        
+    </script>
+</body>
+</html>
