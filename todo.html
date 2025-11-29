@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>TODO LIST</h1>
+    <input type="text" id="inputbox">
+    <button id="addbtn" onclick="addTask()">ADD</button>
+    <ul id="tasks">
+
+    </ul>
+
+    <script>
+        let input = document.getElementById("inputbox");
+        let tas = document.getElementById("tasks")
+        function addTask() {
+            if (input.value === "") {
+                alert("Enter a task to add")
+            } else {
+                const li = document.createElement("li");
+                li.innerHTML = input.value;
+                tas.appendChild(li);
+
+                let spa = document.createElement("span")
+                spa.innerHTML = "\u00d7"
+                li.appendChild(spa);
+            }
+            input.value = ""
+            saveData()
+        }
+        tas.addEventListener("click", function (e) {
+            if (e.target.tagName === "LI") {
+                e.target.classList.toggle("checked")
+                saveData()
+            } else if (e.target.tagName === "SPAN") {
+                e.target.parentElement.remove();
+                saveData()
+            }
+        }, false)
+
+
+        input.addEventListener("keypress", function (event) {
+            if (event.key === 'Enter') {
+                addTask()
+            }
+        })
+
+
+        function saveData() {
+            localStorage.setItem("data", tas.innerHTML)
+        }
+
+        function showtask() {
+            tas.innerHTML = localStorage.getItem("data")
+        }
+
+        showtask()
+    </script>
+</body>
+
+</html>
