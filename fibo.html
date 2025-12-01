@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>GENERATE FIBONACCI SERIES</h1>
+    <input type="number" placeholder="Enter a number" id="term">
+    <button onclick="generateFibo()">GENERATE</button>
+    <ul id="fiboterm">
+
+    </ul>
+
+    <script>
+        let n = document.getElementById("term")
+        let ul = document.getElementById("fiboterm")
+
+        function generateFibo() {
+            let n1 = n.value
+            let first = 0;
+            let second = 1;
+            var third;
+
+            for (let i = 0; i < n1; i++) {
+                let li = document.createElement("li")
+                li.innerHTML = first
+                ul.appendChild(li)
+                third = first + second
+                first = second
+                second = third
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>
