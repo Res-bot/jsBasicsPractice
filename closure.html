@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CLOSURE</h1>
+    <p>A closure is when a function is returned from another functions and the inner function remembers the variables of outer function</p>
+    <p>Here is one of the implementations of closure.</p>
+    <p>Click the button to increase the value of the count.</p>
+    <button onclick="myCounter()">press</button>
+    <div id="counter">
+
+    </div>
+    <script>
+        let cntr = document.getElementById("counter")
+        function createCounter() {
+            let count = 0
+
+            //this is the closure function
+            return function(){
+                count++
+                let p = document.createElement("p");
+                p.innerHTML = count
+                cntr.appendChild(p)
+            }
+
+        }
+
+        const myCounter = createCounter()
+    </script>
+</body>
+</html>
