@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inpnum" placeholder="enter a number">
+    <button onclick="checkPal()">Check</button>
+    <p id="result"></p>
+
+    <p>Here is the list of prime numbers from 1 to 100</p>
+    <button onclick="primeList()">GENERATE LIST</button>
+    <ul id="prnumlis">
+
+    </ul>
+    <script>
+
+        let val = document.getElementById("inpnum")
+        let res = document.getElementById("result")
+        let prlis = document.getElementById("prnumlis")
+
+        function checkPal() {
+            let val1 = val.value
+            let orgnum = parseInt(val1);
+            const rev = parseInt(Math.abs(orgnum).toString().split('').reverse().join(''))
+            if(rev === orgnum){
+                console.log("the number is a palindrome");
+                
+                res.innerHTML = "The number is a palindrome"
+            }
+        }
+
+        function primeList() {
+            let count = 0
+            for (let i = 2; i < 100; i++) {
+                let isprime = true;
+                for(let j = 2; j<i; j++){
+                    if(i%j === 0 ){
+                        isprime = false;
+                        break;
+                    }
+                }
+                if(isprime){
+                    let li = document.createElement("li")
+                    li.innerHTML = i
+                    prlis.appendChild(li)
+                }
+                
+            }
+        }
+
+        
+    </script>
+</body>
+</html>
