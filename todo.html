@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
     <h1>TODO LIST</h1>
-    <input type="text" id="inputbox">
-    <button id="addbtn" onclick="addTask()">ADD</button>
-    <ul id="tasks">
+    <input type="text" id="task" placeholder="Enter a task to add in the list...">
+    <button id="adbtn" onclick="addTask()">ADD</button>
+    <ul id="taskCont">
 
     </ul>
-
     <script>
-        let input = document.getElementById("inputbox");
-        let tas = document.getElementById("tasks")
-        function addTask() {
-            if (input.value === "") {
-                alert("Enter a task to add")
-            } else {
-                const li = document.createElement("li");
-                li.innerHTML = input.value;
-                tas.appendChild(li);
+        let tsk = document.getElementById("task")
+        let cont = document.getElementById("taskCont")
 
-                let spa = document.createElement("span")
-                spa.innerHTML = "\u00d7"
-                li.appendChild(spa);
+        function addTask(){
+            if(tsk.value === ''){
+                return "Enter a task to add in the list"
+            }else{
+                let li = document.createElement("li")
+                li.innerHTML = tsk.value
+                cont.appendChild(li);
+
+                let span = document.createElement("span")
+                span.innerHTML = "\u00d7"
+                li.appendChild(span)
             }
-            input.value = ""
+            tsk.value=''
             saveData()
         }
-        tas.addEventListener("click", function (e) {
-            if (e.target.tagName === "LI") {
-                e.target.classList.toggle("checked")
-                saveData()
-            } else if (e.target.tagName === "SPAN") {
-                e.target.parentElement.remove();
+
+        cont.addEventListener("click", function(e) {
+            if(e.target.tagName === "SPAN"){
+                e.target.parentElement.remove()
                 saveData()
             }
-        }, false)
+        })
 
-
-        input.addEventListener("keypress", function (event) {
-            if (event.key === 'Enter') {
+        tsk.addEventListener("keypress", function(e){
+            if(e.key === "ENTER"){
                 addTask()
             }
         })
 
 
-        function saveData() {
-            localStorage.setItem("data", tas.innerHTML)
+        function saveData(){
+            localStorage.setItem("data", cont.innerHTML)
         }
 
-        function showtask() {
-            tas.innerHTML = localStorage.getItem("data")
+        function showdata(){
+            cont.innerHTML = localStorage.getItem("data")
         }
 
-        showtask()
+        showdata()
+
+        
     </script>
 </body>
-
 </html>
