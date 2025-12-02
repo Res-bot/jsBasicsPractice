@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [8,10,57,89,7,89]
+        let uniqueArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            let exists = false
+
+            for (let j = i+1; j < arr.length; j++) {
+                if(arr[j] === arr[i]){
+                    exists = true
+                    break;
+                }
+                
+            }
+
+            if(!exists){
+                uniqueArr.push(arr[i])
+            }  
+        }
+        console.log(uniqueArr);
+
+
+
+        let arr1 = [8,10,57,89,7,89,10,8,65,90]
+        const unar = arr1.filter((item,index)=>{
+            return arr1.indexOf(item) === index
+        })
+        console.log(unar);
+        
+    </script>
+</body>
+</html>
