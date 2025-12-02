@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h3>1.IIFE (Immediately Invoked Function Expression)</h3>
+        <p>Open your browser console (F12) to see the message printed immediately.</p>
+        <p id="iife-msg" style="color: gray; font-style: italic;">Waiting...</p>
+    </div>
+
+    <div class="box">
+        <h3>2. Function with Memory</h3>
+        <p>This button remembers how many times you clicked it.</p>
+        <button onclick="trackClicks()">Click Me</button>
+        <p id="result">Count: 0</p>
+    </div>
+
+    <script>
+         (function() {
+            console.log("IIFE Executed: I ran immediately without being called!");
+            document.getElementById("iife-msg").innerText = "The IIFE ran automatically on page load!";
+            document.getElementById("iife-msg").style.color = "green";
+        })();
+
+        const trackClicks = (function() {
+            let count = 0; // Private variable
+
+            return function() {
+                count++;
+                document.getElementById("result").innerText = "Count: " + count;
+                console.log("Button clicked " + count + " times");
+            }
+        })(); 
+    </script>
+</body>
+</html>

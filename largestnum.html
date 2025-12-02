@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [10,20,41,65,98,89,76,55]
+        let largest = -Infinity, secondLargest = -Infinity
+        let smallest = Infinity, secondSmallest = Infinity
+
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            console.log(element);
+            
+        }
+
+        for (const num of array) {
+            
+            if(num > largest){
+                secondLargest = largest
+                largest = num
+            }else if(num > secondLargest && num !== largest){
+                secondLargest = num
+            }
+
+            if(num < smallest){
+                secondSmallest = smallest
+                smallest = num
+            }else if(num<secondSmallest && num !== smallest){
+                secondSmallest = num
+            }
+        }
+
+        console.log("this is the largest number: " + largest);
+        console.log("this is the smallest number: " + smallest);
+        console.log("this is the second largest number: " + secondLargest);
+        console.log("this is the smallest number: " + secondSmallest);
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>
