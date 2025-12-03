@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <h3>1. Shallow Copy Test ({...spread})</h3>
+        <p>We will change the copy's <strong>city</strong> (nested).</p>
+        <button onclick="testShallow()">Run Shallow Test</button>
+        <div id="shallowLog" class="log">Waiting...</div>
+    </div>
+
+    <div class="box">
+        <h3>2. Deep Copy Test (structuredClone)</h3>
+        <p>We will change the copy's <strong>city</strong> (nested).</p>
+        <button onclick="testDeep()">Run Deep Test</button>
+        <div id="deepLog" class="log">Waiting...</div>
+    </div>
+
+    <script>
+        function testShallow() {
+            let original = {
+                id: 1,
+                meta: {city: "kolkata", state: "west bengal"}
+            }
+
+            let copy = {...original}
+
+            copy.meta.city = "kharagpur"
+
+            let output = `the original city was ${original.meta.city} and after shallow copy it got changed to ${copy.meta.city}`
+
+            document.getElementById("shallowLog").innerHTML = output
+        }
+
+        function testDeep() {
+            let org = {
+                id: 2,
+                meta: { state: "goa", country:"india"}
+            }
+
+            let copy = structuredClone(org)
+
+            copy.meta.country = "USA"
+
+            let output = `the original city was ${org.meta.country} and after shallow copy it got changed to ${copy.meta.country}`
+
+            document.getElementById("deepLog").innerHTML = output            
+        }
+    </script>
+</body>
+</html>
