@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //merge objects
+        let a = {name: "elena", title: "gilbert"}
+        let b = {bname: "damon", btitle: "salvatore"}
+        console.log({...a,...b});
+
+        //count properties of object
+        console.log(Object.keys(b).length);
+
+        //checking if a property exists
+        console.log("bname" in b);
+        console.log("title" in b);
+
+        //invert keys and values
+        const inverted = Object.fromEntries(Object.entries(a).map(([key,value])=> [value,key]))
+        console.log(inverted);
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

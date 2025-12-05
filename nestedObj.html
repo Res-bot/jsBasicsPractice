@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const month = {
+            name: "January",
+            fest: {
+                f1: "new year",
+                f2: {
+                    nam : "sankranti",
+                    food: "makara chaula",
+                }
+            },
+            fest2 : {
+                name: "Mumma's birthday"
+            }
+        }
+
+        iterObj(month)
+
+        function iterObj(obj, parentKey = '') {
+            for (const key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    const value = obj[key]
+
+                    const currentPath = parentKey ? `${parentKey}.${key}` : `${key}`
+
+                    if(typeof value === 'object' && value !== null){
+                        iterObj(value,currentPath)
+                    }
+                    else{
+                        console.log(`${currentPath}:${value}`);
+                        
+                    }
+                }     
+            }
+        }
+    </script>
+</body>
+</html>
