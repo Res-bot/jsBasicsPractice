@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Map()</h1>
+    <h1>Filter()</h1>
+    <h1>Reduce()</h1>
+    <h1>When to use reduce() over others</h1>
+    <p>When we are converting arrays into objects</p>
+    <p>When we have to count the number of occurences </p>
+    <script>
+        let arr = [10,20,30,40]
+
+        console.log(arr.reduce((acc,nex)=> acc+nex,0));
+
+        let food = [
+            {name: "chilly chicken", type:"nonveg"},
+            {name: "chilly paneer", type:"veg"},
+            {name: "chicken kadhai", type:"nonveg"},
+            {name: "masala kulcha", type:"veg"},
+            {name: "Ilish", type:"nonveg"}
+        ]
+
+        console.log(food.reduce((acc,curr)=>{
+            if(!acc[curr.type]){
+                acc[curr.type] = [];
+            }
+            acc[curr.type].push(curr.name)
+            return acc
+        },{}));
+        
+        
+        
+    </script>
+</body>
+</html>
